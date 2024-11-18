@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Product Service
+  product-service:
+    build:
+      context: ./Product-Service
+    ports:
+      - "5001:5001"
+    networks:
+      - microservices-network
+
+  # Order Service
+  order-service:
+    build:
+      context: ./Order-Service
+    ports:
+      - "5002:5002"
+    networks:
+      - microservices-network
+    depends_on:
+      - product-service
+
+  # User-Service
+  user-service:
+    build:
+      context: ./User-Service
+    ports:
+      - "5003:5003"
+    networks:
+      - microservices-network
+
+  # Notification Service
+  notification-service:
+    build:
+      context: ./Notification-Service
+    ports:
+      - "5004:5004"
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge

@@ -1,0 +1,13 @@
+{
+    "name": "notification-service",
+    "version": "1.0.0",
+    "description": "A notification service for microservices architecture",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "axios": "^1.3.4"
+    }
+  }  
